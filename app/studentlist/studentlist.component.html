@@ -1,0 +1,74 @@
+<div class="img">
+<div class="container custom-container-2">
+  
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="StudentlistService.length == 0">
+      <p>There is no Student added yet!</p>
+      <p>There is no Student added yet!</p>
+      <button class="btn btn-outline-primary" routerLink="/studentregistration">Add
+        Student</button>
+    </div>
+    <div>
+        <div style="color: blanchedalmond;"><b>want to add student?</b></div>
+        <a class="btn btn-secondary" routerLinkActive="active"
+      routerLink="/studentregistration">Click Here</a>
+    </div>
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="StudentlistService.length !== 0">
+      <h3 class="mb-3 text-center" style="color: blanchedalmond;">Student List</h3>
+  
+     
+      <!-- <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search First Name" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav> -->
+  
+  
+      <div class="col-md-12">
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">student Id</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Grades</th>
+              
+            
+              <th scope="col">Email</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Password</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+         
+          <tbody>
+            <tr *ngFor="let student of StudentlistService">
+              <td>{{student.student_id}}</td>
+              <td>{{student.student_fname}}</td>
+              <td>{{student.student_lname}}</td>
+              <td>{{student.student_grades}}</td>
+              
+              <td>{{student.student_email}}</td>
+              <td>{{student.student_username}}</td>
+              <td>{{student.student_password}}</td>
+              <!--
+                          <button class="edit" routerLink="/employee-edit/{{employee.id}}"> Edit </button>
+                -->
+              <td>
+                <!-- <button class="edit" routerLink="/employee-edit/{{employee.eid}}"> Edit </button> -->
+                <button class="btn btn-primary" (click)="deleteStudent(student.student_id)">
+                  Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>
+  </div>

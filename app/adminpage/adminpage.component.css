@@ -1,0 +1,39 @@
+.img{
+    width: 100%;
+  min-height: 100vh;
+    /* background-color: blue; */
+    background-image:url('/assets/images/pexels-borja-lopez-1059078.jpg') ;
+    background-size: cover;
+    overflow: hidden;
+    
+
+}
+
+.student{
+    height: 100%;
+    background-color:rgba(63, 57, 57, 0.445);
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+   padding-bottom: 5%;
+   
+}
+.course{
+    height: 100%;
+    background-color:rgba(63, 57, 57, 0.445);
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+     padding-bottom: 5%;
+     margin-left: 40%;
+     
+   
+}
+
+.card-body{
+    font-weight:bold;
+    color: blanchedalmond;
+}
+

@@ -1,0 +1,78 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="img">
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>Fill Your Details carefully</p>
+
+                        <div>already a user?</div>
+                        <li ngbDropdown class="nav-item dropdown " show>
+                          <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ngbDropdownToggle>
+                            Login As
+                          </a>
+                          <div  ngbDropdownMenu class="dropdown-menu " aria-labelledby="navbarDropdown" show >
+                            <a  ngbDropdownItem class="dropdown-item"  routerLink="/studentlogin" routerLinkActive="active">Student </a>
+                            <a  ngbDropdownItem class="dropdown-item" routerLink="/adminlogin" routerLinkActive="active">Admin</a>
+                            
+                          </div>
+                        </li>
+                        
+              
+                    </div>
+                    <div class="col-md-9 register-right">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Register here</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" ng-required="true" ng-minlength=5 
+                                          class="form-control" placeholder="First Name" [(ngModel)]="studentDetails.student_fname">
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="text"
+                                          class="form-control" placeholder="Last Name" [(ngModel)]="studentDetails.student_lname">
+                                      </div>
+                                      
+                                      <div class="form-group">
+                                        <input type="text" 
+                                          class="form-control" placeholder="Email" [(ngModel)]="studentDetails.student_email">
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="text" 
+                                          class="form-control" placeholder="Address" [(ngModel)]="studentDetails.student_address">
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="text" 
+                                          class="form-control" placeholder="Grades" [(ngModel)]="studentDetails.student_grades">
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="text" 
+                                          class="form-control" placeholder="User Name" [(ngModel)]="studentDetails.student_username">
+                                      </div>
+                                  
+                                      <div class="form-group">
+                                        <input type="text"
+                                          class="form-control" placeholder="Password" [(ngModel)]="studentDetails.student_password">
+                                      </div>
+                                        
+                                      <div class="form-group">
+                                        <button class="btn btn-success btn-lg btn-block" (click)="addStudent()">Register</button>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        </div>
+                        </div>
+                        </div>
+
+            
