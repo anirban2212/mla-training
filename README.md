@@ -1,2 +1,1 @@
-# mla-training
-student management system
+angular src/app folder
