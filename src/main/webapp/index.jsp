@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>WELCOME</title>
 </head>
 <body>
-<h1>WELCOME TO STUDENT MANAGEMENT SYSTEM</h1>
-<% 
-response.sendRedirect("register");
-%>
+	<h1>Welcome to EMS</h1>
+	<%
+		response.sendRedirect("register");
+	%>
 </body>
 </html>

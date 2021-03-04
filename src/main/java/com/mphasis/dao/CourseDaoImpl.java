@@ -1,5 +1,7 @@
 package com.mphasis.dao;
+
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -54,7 +56,7 @@ public class CourseDaoImpl implements CourseDao{
     }
 
 	@Override
-	public List<Course> deleteCourse(long course_id) {
+	public List<Course> deleteCourse(int course_id) {
 		Query query = getSession().createQuery("delete from Course em where course_id=:course_id");
 		query.setParameter("course_id", course_id);
 		query.executeUpdate();
@@ -62,7 +64,7 @@ public class CourseDaoImpl implements CourseDao{
 	}
 
 	@Override
-	public List<Course> getACourse(long course_id) {
+	public List<Course> getACourse(int course_id) {
 		Query query = getSession().createQuery("from Course em where em.course_id=:course_id");
 		query.setParameter("course_id", course_id);
 		List<Course> courseList=query.list();

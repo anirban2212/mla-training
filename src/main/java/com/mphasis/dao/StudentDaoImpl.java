@@ -1,5 +1,8 @@
 package com.mphasis.dao;
 import java.util.List;
+
+
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -7,6 +10,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+
 import com.mphasis.entity.Student;
 @Repository
 public class StudentDaoImpl implements StudentDao {
@@ -56,7 +61,7 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public List<Student> deleteStudent(long student_id) {
+	public List<Student> deleteStudent(int student_id) {
 		Query query = getSession().createQuery("delete from Student sm where student_id=:student_id");
 		query.setParameter("student_id",student_id );
 		query.executeUpdate();
@@ -65,12 +70,13 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public List<Student> getAStudent(long student_id) {
+	public List<Student> getAStudent(int student_id) {
 		Query query = getSession().createQuery("from Student sm where sm.id=:student_id");
 		query.setParameter("student_id", student_id);
 		List<Student> stuList=query.list();
 		return stuList;
 	}
 
+	
 	
 }

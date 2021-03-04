@@ -1,5 +1,8 @@
 package com.mphasis.controller;
+
 import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.mphasis.entity.Course;
 import com.mphasis.entity.Student;
 import com.mphasis.service.CourseService;
@@ -20,6 +24,8 @@ public class StudentController {
 	@Autowired
 	CourseService courseService;
 	Course course;
+	@Autowired
+	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
 		return new ModelAndView("register");
@@ -83,16 +89,16 @@ public class StudentController {
 		mv.addObject("stulist", li);
 		return mv;				
 	}
-	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView deleteStudent(Student stu)
+	public ModelAndView deleteStudent(int student_id)
 	{
-		List<Student> li=studentService.deleteStudent(stu.getStudent_id());
+		List<Student> li=studentService.deleteStudent(student_id);
 		ModelAndView mv=new ModelAndView("home");
+		mv.addObject("msg","Student Deleted SUccessfully");
 		mv.addObject("stulist", li);
+		
 		return mv;				
 	}
-	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView editStu() {		
 		return new ModelAndView("edit");
@@ -105,7 +111,6 @@ public class StudentController {
 		return allStudent();
 
 	}
-	///////////COURSE CONTROLLER
 public ModelAndView allCourse() {
 		
 		List<Course> list=courseService.getCourseList();
@@ -125,7 +130,7 @@ public ModelAndView getACourse(@RequestParam("cid") String course_id)
 @RequestMapping(value = "/deleteCouse", method = RequestMethod.GET)
 public ModelAndView deleteCourse(int course_id)
 {
-	List<Course> list=courseService.deleteCourse(course_id);
+	List<Student> list=studentService.deleteStudent(course_id);
 	ModelAndView mv=new ModelAndView("home");
 	mv.addObject("msg","Course Deleted SUccessfully");
 	mv.addObject("courselist", list);
@@ -143,5 +148,7 @@ public ModelAndView updateCourse(@ModelAttribute Course course) {
 	studentService.updateStudent(student);
 	return allCourse();
 
-}	
+}
+
+
 }

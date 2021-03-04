@@ -11,7 +11,7 @@
 ${msg}
 	<form action="home" method="post">
 	
-	 Email :* <input type="text" name="txtemail" size=50 maxlength="50" required="required"/> <br>
+	 Email :* <input type="text" name="txtemail" size=50 maxlength="15" required="required"/> <br>
    	 Password :*<input type="password" name="txtpwd" size=50 maxlength="15" required="required"/> <br>
    	 <input type="submit" value="Signin"/>
 	

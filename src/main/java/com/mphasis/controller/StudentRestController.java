@@ -1,5 +1,6 @@
 package com.mphasis.controller;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.mphasis.entity.Course;
+import com.mphasis.entity.Enrollment;
 import com.mphasis.entity.Student;
 import com.mphasis.service.CourseService;
+import com.mphasis.service.EnrollmentService;
 import com.mphasis.service.StudentService;
 
 @RestController
@@ -27,6 +29,11 @@ public class StudentRestController {
 	@Autowired
 	CourseService courseService;
 	Course course;
+	
+	@Autowired
+	EnrollmentService enrollmentService;
+	Enrollment enrollment;
+	
 	private static final Logger logger = Logger.getLogger("StudentRestController.class");
 
 	@GetMapping("/allstudent")
@@ -47,7 +54,7 @@ public class StudentRestController {
 	}
 
 	@GetMapping("/search/{student_id}")
-	public List<Student> searchStudent(@PathVariable("student_id") long student_id) {
+	public List<Student> searchStudent(@PathVariable("student_id") int student_id) {
 
 		return studentService.getAStudent(student_id);
 	}
@@ -74,8 +81,7 @@ public class StudentRestController {
 		return new ResponseEntity<List<Student>>(li, HttpStatus.OK);
 	}
 
-
-///////////////-------------------COURSE RESTCONTROLLER-------------------
+/////
 	@GetMapping("/allcourse")
 	private  ResponseEntity<List<Course>>  allCourse() {
 		
@@ -120,5 +126,36 @@ public class StudentRestController {
 
 		return new ResponseEntity<List<Course>>(li, HttpStatus.OK);
 	}
-}
+	
+	//For enrollment
+		@GetMapping("/allEnroll")
+		private  ResponseEntity<List<Enrollment>>  allEnroll() {
+			logger.info("GETTING REQUEST FROM CLIENT TO LIST ALL StudentS");
+			List<Enrollment> li=enrollmentService.getEnrollmentList();
+			if(li.isEmpty()) {
+				return new ResponseEntity<List<Enrollment>>(HttpStatus.NO_CONTENT);	
+			}		
+			return new ResponseEntity<List<Enrollment>>(li, HttpStatus.OK);		
+		}
+		
+		@PostMapping("/createEnroll")
+		public Enrollment createEnroll( @RequestBody Enrollment enrollment) {
+			enrollmentService.createEnrollment(enrollment);
+			return enrollment;
+		}
+		
+		@PutMapping("/updateEnroll")
+		private ResponseEntity<List<Enrollment>> updateEnroll(@RequestBody Enrollment enrollment) {
 
+			List<Enrollment> li = enrollmentService.updateEnrollment(enrollment);
+			if (li.isEmpty()) {
+				return new ResponseEntity<List<Enrollment>>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<List<Enrollment>>(li, HttpStatus.OK);
+		}
+	}
+
+	
+
+
+	

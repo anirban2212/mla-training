@@ -24,7 +24,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="myDataSource"
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="${database.driver}" />
@@ -36,11 +36,12 @@
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="myDataSource" />
+		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
 				<value>com.mphasis.entity.Student</value>
 				<value>com.mphasis.entity.Course</value>
+				<value>com.mphasis.entity.Enrollment</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -56,10 +57,12 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-<bean id="student" class="com.mphasis.entity.Student"/>
-<bean id="course" class="com.mphasis.entity.Course"/>
-	<bean id="studentdao" class="com.mphasis.dao.StudentDaoImpl"/>
-	<bean id="studentService" class="com.mphasis.service.StudentServiceImpl"/>
-	<bean id="coursedao" class="com.mphasis.dao.CourseDaoImpl"/>
-	<bean id="courseService" class="com.mphasis.service.CourseServiceImpl"/>
+<bean id="student" class="com.mphasis.entity.Student"></bean>
+
+  <bean id="studentdao" class="com.mphasis.dao.StudentDaoImpl"></bean>
+  <bean id="studentService" class="com.mphasis.service.StudentServiceImpl"/>
+  
+
+  
+
 </beans>

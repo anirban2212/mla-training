@@ -33,13 +33,15 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public List<Student> deleteStudent(long student_id) {
+	public List<Student> deleteStudent(int student_id) {
 		return studentdao.deleteStudent(student_id);
 	}
 
 	@Override
-	public List<Student> getAStudent(long student_id) {
+	public List<Student> getAStudent(int student_id) {
 		return studentdao.getAStudent(student_id);
 	}
+	
+
 	
 }
