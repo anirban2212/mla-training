@@ -9,4 +9,6 @@ public interface EnrollmentDao {
 	public List<Enrollment> getEnrollmentList();
 	public List<Enrollment> updateEnroll(Enrollment enrollment) ;
 	
+	public List<Enrollment> getAEnrollment(int id);
+	
 }

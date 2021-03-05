@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mphasis.entity.Enrollment;
+import com.mphasis.entity.Student;
 
 @Repository
 public class EnrollmentDaoImpl implements EnrollmentDao {
@@ -23,8 +24,8 @@ public class EnrollmentDaoImpl implements EnrollmentDao {
 	public void createEnrollment(Enrollment enrollment) {
 		System.out.println("Ennnnnnnnrooooollll" + enrollment);
 		getSession().save(enrollment);
-		System.out.println(
-				"Student Id: " + enrollment.getStudent().getStudent_id() + " got enrolled with Course Id: " + enrollment.getCourse().getCourse_id());
+		System.out.println("Student Id: " + enrollment.getStudent().getStudent_id() + " got enrolled with Course Id: "
+				+ enrollment.getCourse().getCourse_id());
 
 	}
 
@@ -34,16 +35,23 @@ public class EnrollmentDaoImpl implements EnrollmentDao {
 		List<Enrollment> enrollList = query.list();
 		return enrollList;
 	}
+
 	@Override
 	public List<Enrollment> updateEnroll(Enrollment enrollment) {
-		Query query = getSession().createQuery(
-				"update  Enrollment em set student_id=:student_id,course_id=:course_id,sc_status=:sc_status where id=:id");
+		Query query = getSession().createQuery("update  Enrollment em set sc_status=:sc_status where id=:id");
 
-		query.setParameter("student_id", enrollment.getStudent());
-		query.setParameter("course_id", enrollment.getCourse());
 		query.setParameter("sc_status", enrollment.getSc_status());
 		query.setParameter("id", enrollment.getId());
 		query.executeUpdate();
 		return getEnrollmentList();
 	}
+
+	@Override
+	public List<Enrollment> getAEnrollment(int id) {
+		Query query = getSession().createQuery("from Enrollment sm where sm.student_id=:id");
+		query.setParameter("student_id", id);
+		List<Enrollment> enrollList = query.list();
+		return enrollList;
+	}
+
 }

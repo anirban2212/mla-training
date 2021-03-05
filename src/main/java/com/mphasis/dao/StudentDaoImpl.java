@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +23,16 @@ public class StudentDaoImpl implements StudentDao {
 		return (Session)sessionFactory.getCurrentSession();
 	}	
 
+	public List<Student> studentLogin(Student student)
+    {
+        Criteria c = getSession().createCriteria(Student.class);
+        Criterion criterion=Restrictions.eq("student_email",student.getStudent_email());
+        Criterion criterion2=    Restrictions.eq("student_password",student.getStudent_password());
+        Criterion criterion3=Restrictions.and(criterion,criterion2);
+        c.add(criterion3);
+        return c.list();
+    }    
+	
 	@Override
 	public void createStudent(Student student) {
 		
@@ -46,9 +57,14 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public List<Student> updateStudent(Student student) {
-		Query query = getSession().createQuery("update Student set student_fname=:student_fname,student_lname=:student_lname where student_id=:student_id ");
+		Query query = getSession().createQuery("update Student set student_fname=:student_fname,student_lname=:student_lname, student_email=:student_email,student_address=:student_address,student_grades=:student_grades,student_username=:student_username,student_password=:student_password where student_id=:student_id ");
 		query.setParameter("student_fname", student.getStudent_fname());
 		query.setParameter("student_lname",student.getStudent_lname());
+		query.setParameter("student_email",student.getStudent_email());
+		query.setParameter("student_address",student.getStudent_address());
+		query.setParameter("student_grades",student.getStudent_grades());
+		query.setParameter("student_username",student.getStudent_username());
+		query.setParameter("student_password",student.getStudent_password());
 		query.setParameter("student_id", student.getStudent_id());
 		int rowsAffected = query.executeUpdate();
 		System.out.println(rowsAffected + " updated... ");

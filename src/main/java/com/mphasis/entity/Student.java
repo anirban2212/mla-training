@@ -1,36 +1,47 @@
 package com.mphasis.entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "student")
+
 public class Student {
 
 	@Id
 	@GeneratedValue
 	private int student_id;
+	@NotNull(message = "Cannot be null")
+	@Size(min = 3, message = "Must be greater than 3 characters")
 	private String student_fname;
-	private String student_lname;
-	private String student_email;
-	private String student_address;
-	private String student_grades;
-	private String student_username;
+	@NotNull(message = "Cannot be null")
 
+	private String student_lname;
+	@Column(unique = true)
+	@NotNull(message = "Cannot be null")
+	@Email(message = "Invalid Formating")
+	private String student_email;
+	
+	@NotNull(message = "Cannot be null")
+	private String student_address;
+	@NotNull(message = "Cannot be null")
+	private float student_grades;
+	@NotNull(message = "Cannot be null")
+	@Size(min = 4, message = "must be greater than 4 and lesser than 8")
+	@Column(unique = true)
+	private String student_username;
+	@NotNull(message = "Cannot be null")
+	@Size(min = 4, max = 8, message = "must be greater than 4 and lesser than 8")
 	private String student_password;
 
 	@OneToMany(mappedBy = "student")
@@ -42,7 +53,7 @@ public class Student {
 	}
 
 	public Student(int student_id, String student_fname, String student_lname, String student_email,
-			String student_address, String student_grades, String student_username, String student_password) {
+			String student_address, float student_grades, String student_username, String student_password) {
 		super();
 		this.student_id = student_id;
 		this.student_fname = student_fname;
@@ -94,11 +105,11 @@ public class Student {
 		this.student_address = student_address.toUpperCase();
 	}
 
-	public String getStudent_grades() {
+	public float getStudent_grades() {
 		return student_grades;
 	}
 
-	public void setStudent_grades(String student_grades) {
+	public void setStudent_grades(float student_grades) {
 		this.student_grades = student_grades;
 	}
 

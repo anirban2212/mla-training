@@ -41,6 +41,12 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> getAStudent(int student_id) {
 		return studentdao.getAStudent(student_id);
 	}
+
+	@Override
+	public void studentLogin(Student student) {
+		 studentdao.getStudent(student);
+		
+	}
 	
 
 	

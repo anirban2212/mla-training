@@ -1,19 +1,14 @@
 package com.mphasis.entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "course")
@@ -21,14 +16,14 @@ public class Course {
 	@Id
 	@GeneratedValue
 	private int course_id;
-	
+	@NotNull(message="cannot be null")
 	private String course_name;
-	
-	private String course_fees;
-	
+	@NotNull(message="cannot be null")
+	private float course_fees;
+	@NotNull(message="cannot be null")
 	private String course_level;
-	
-	private int course_duration;
+	@NotNull(message="cannot be null")
+	private String course_duration;
 	
 	@OneToMany(mappedBy = "course")
 	private Set<Enrollment> enrollment =new HashSet<Enrollment>();
@@ -37,7 +32,7 @@ public class Course {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Course(int course_id, String course_name, String course_fees, String course_level, int course_duration) {
+	public Course(int course_id, String course_name, float course_fees, String course_level, String course_duration) {
 		super();
 		this.course_id = course_id;
 		this.course_name = course_name;
@@ -57,11 +52,11 @@ public class Course {
 	public void setCourse_name(String course_name) {
 		this.course_name = course_name.toUpperCase();
 	}
-	public String getCourse_fees() {
+	public float getCourse_fees() {
 		return course_fees;
 	}
-	public void setCourse_fees(String course_fees) {
-		this.course_fees = course_fees.toUpperCase();
+	public void setCourse_fees(float course_fees) {
+		this.course_fees = course_fees;
 	}
 	public String getCourse_level() {
 		return course_level;
@@ -69,11 +64,11 @@ public class Course {
 	public void setCourse_level(String course_level) {
 		this.course_level = course_level.toUpperCase();
 	}
-	public int getCourse_duration() {
+	public String getCourse_duration() {
 		return course_duration;
 	}
-	public void setCourse_duration(int course_duration) {
-		this.course_duration = course_duration;
+	public void setCourse_duration(String course_duration) {
+		this.course_duration = course_duration.toUpperCase();
 	}
 	@Override
 	public String toString() {

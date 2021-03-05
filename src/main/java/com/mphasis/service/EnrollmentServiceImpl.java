@@ -34,5 +34,13 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 		return enrollmentdao.updateEnroll(enrollment);
 	}
 
+
+
+	@Override
+	public List<Enrollment> getAEnrollment(int id) {
+		
+		return enrollmentdao.getAEnrollment(id);
+	}
+
 }
 

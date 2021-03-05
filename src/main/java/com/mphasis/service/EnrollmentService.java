@@ -12,5 +12,7 @@ public interface EnrollmentService {
 
 	public void createEnrollment(Enrollment enrollment);
 
+	public List<Enrollment> getAEnrollment(int id);
+
 
 }
