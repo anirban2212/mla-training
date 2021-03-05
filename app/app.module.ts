@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { CoursestatusComponent } from './coursestatus/coursestatus.component';
+import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
+import { StatusEditComponent } from './status-edit/status-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     StudentlistComponent,
     StudentloginComponent,
     StudentregistrationComponent,
-    AdminpageComponent
+    AdminpageComponent,
+    CoursestatusComponent,
+    EnrollmentformComponent,
+    StatusEditComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Student } from './student.service';
 import { Course } from './course.service';
+import { Enrollment } from './enrollment.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Course } from './course.service';
 export class RestApiService {
 
   
-  apiURL = 'http://localhost:8083/StudentManagementSystem_RLL';
+  apiURL = 'http://localhost:8083/SMS';
 
   constructor(private http: HttpClient) { }
 
@@ -38,6 +39,14 @@ export class RestApiService {
   //get list of courses
   getCourses(): Observable<Course> {
     return this.http.get<Course>(this.apiURL + '/allcourse')
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+  //get course status
+  getCoursesStatus(): Observable<Enrollment> {
+    return this.http.get<Enrollment>(this.apiURL + '/allEnroll')
     .pipe(
       retry(1),
       catchError(this.handleError)

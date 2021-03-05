@@ -27,7 +27,19 @@
     padding-left: 5%;
     padding-right: 5%;
      padding-bottom: 5%;
-     margin-left: 40%;
+     margin-left: 4%;
+     
+   
+}
+.enrolled_course{
+    height: 100%;
+    background-color:rgba(63, 57, 57, 0.445);
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+     padding-bottom: 5%;
+     margin-left: 7%;
      
    
 }

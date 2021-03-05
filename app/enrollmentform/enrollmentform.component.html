@@ -1,0 +1,72 @@
+<div class="img">
+
+    <div class="container custom-container-2">
+    
+      <!-- Show it when there is no employee -->
+      <div class="no-data text-center" *ngIf="CourselistService .length == 0">
+        <p>There is no course added yet!</p>
+        <p>There is no course added yet!</p>
+        <button class="btn btn-outline-primary" routerLink="/courseregistration">Add
+          Student</button>
+      </div>
+      <div>
+        <div style="color: blanchedalmond;"><b>Want to add Course?</b></div>
+          <a class="btn btn-secondary" routerLinkActive="active"
+        routerLink="/createcourse">Create Course</a>
+      </div>
+      <!-- Employees list table, it hides when there is no employee -->
+      <div *ngIf="CourselistService .length !== 0">
+        <h3 class="mb-3 text-center" style="color: blanchedalmond;">course List</h3>
+    
+       
+        <!-- <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search First Name" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </nav> -->
+    
+    
+        <div class="col-md-12">
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">course Id</th>
+                <th scope="col">course Name</th>
+                <th scope="col">course fees</th>
+                <th scope="col">course level</th>
+                
+              
+                <th scope="col">course duration</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of CourselistService ">
+                <td>{{course.course_id}}</td>
+                <td>{{course.course_name}}</td>
+                <td>{{course.course_fees}}</td>
+                <td>{{course.course_level}}</td>
+                
+                <td>{{course.course_duration}}</td>
+               
+                <!--
+                            <button class="edit" routerLink="/employee-edit/{{employee.id}}"> Edit </button>
+                  -->
+                <td>
+                  <!-- <button class="edit" routerLink="/employee-edit/{{employee.eid}}"> Edit </button> -->
+                  <button class="btn btn-primary">
+                    Enroll</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+      </div>
+    
+    </div>
+    </div>
+  
