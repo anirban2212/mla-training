@@ -16,6 +16,15 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
 import { CoursestatusComponent } from './coursestatus/coursestatus.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
 import { StatusEditComponent } from './status-edit/status-edit.component';
+import { StudentEditComponent } from './student-edit/student-edit.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import { CreateEnrollComponent } from './create-enroll/create-enroll.component';
+import { CourseStatusEditComponent } from './course-status-edit/course-status-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +37,23 @@ import { StatusEditComponent } from './status-edit/status-edit.component';
     AdminpageComponent,
     CoursestatusComponent,
     EnrollmentformComponent,
-    StatusEditComponent
+    StatusEditComponent,
+    StudentEditComponent,
+    CourseEditComponent,
+    PageNotFoundComponent,
+    ContactUsComponent,
+    HomeComponent,
+    StudentDetailsComponent,
+    CreateEnrollComponent,
+    CourseStatusEditComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
+    NgbModule
   
   ],
   providers: [],
