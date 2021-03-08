@@ -70,6 +70,17 @@ public class CourseDaoImpl implements CourseDao{
 		List<Course> courseList=query.list();
 		return courseList;
 	}
+	//for getting latest course
+	@Override
+	public List<Course> getNewCourse() {
+
+		Query query = getSession().createQuery(
+				"from Course order by course_id DESC");
+		query.setMaxResults(1);
+		List<Course> courseList = query.list();
+		return courseList;
+		
+	}
 	
 
 }

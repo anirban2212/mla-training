@@ -43,5 +43,9 @@ private CourseDao courseDao;
 	public List<Course> getACourse(int course_id) {
 		return courseDao.getACourse(course_id);
 	}
+	@Override
+	public List<Course> getNewCourse(){
+		return courseDao.getNewCourse();
+		}
 
 }

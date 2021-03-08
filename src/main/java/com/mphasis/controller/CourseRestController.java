@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.mphasis.entity.Course;
 import com.mphasis.service.CourseService;
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 public class CourseRestController {
 	@Autowired
 	CourseService courseService;
@@ -64,6 +66,17 @@ public class CourseRestController {
 	private ResponseEntity<List<Course>> deleteCourse(@Valid @PathVariable("course_id") int course_id) {
 
 		List<Course> li = courseService.deleteCourse(course_id);
+		if (li.isEmpty()) {
+			return new ResponseEntity<List<Course>>(HttpStatus.NO_CONTENT);
+		}
+
+		return new ResponseEntity<List<Course>>(li, HttpStatus.OK);
+	}
+	
+	@GetMapping("/newcourse")
+	private ResponseEntity<List<Course>> newCourse() {
+
+		List<Course> li = courseService.getNewCourse();
 		if (li.isEmpty()) {
 			return new ResponseEntity<List<Course>>(HttpStatus.NO_CONTENT);
 		}

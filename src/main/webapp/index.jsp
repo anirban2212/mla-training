@@ -8,8 +8,6 @@
 </head>
 <body>
 	<h1>Welcome to EMS</h1>
-	<%
-		response.sendRedirect("register");
-	%>
+	
 </body>
 </html>

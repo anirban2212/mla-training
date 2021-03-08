@@ -12,6 +12,7 @@ public interface CourseDao {
 	public List<Course> updateCourse(Course course);
 	public List<Course> deleteCourse(int course_id);
 	List<Course> getACourse(int course_id);
+	List<Course> getNewCourse();
 	
 	
 }

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "course")
+@Table(name = "course_table")
 public class Course {
 	@Id
 	@GeneratedValue
