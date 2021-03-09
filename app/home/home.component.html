@@ -1,0 +1,33 @@
+
+<div class="img">
+
+    <div class="container custom-container-2">
+    
+      <!-- Show it when there is no employee -->
+      <!-- <div class="no-data text-center" *ngIf="CourselistService .length == 0">
+        <p>There is no course added yet!</p>
+        <p>There is no course added yet!</p>
+        <button class="btn btn-outline-primary" routerLink="/courseregistration">Add
+          Course</button>
+      </div> -->
+      <!-- <div>
+        <div style="color: rgb(24, 23, 22);"><b>Want to add Course?</b></div>
+          <a class="btn btn-secondary" routerLinkActive="active"
+        routerLink="/createcourse">Create Course</a>
+      </div> -->
+     
+      <div *ngIf="CourselistService .length !== 0">
+        <h3 class="mb-3 text-center" style="color: rgb(22, 21, 20);"><b class="heading">WELCOME TO STUDENT MANAGEMETNT SYSTEM</b></h3>
+    <marquee behavior=alternate bgcolor="transparent" >
+        
+          <div *ngFor="let course of CourselistService ">
+            <h1 class="heading2"> our latest course<b> {{course.course_name}}</b> is now available for enroll</h1>
+
+          </div>
+        
+      </marquee>
+    
+      
+    
+    </div>
+    </div>

@@ -1,0 +1,32 @@
+.img{
+    width: 100%;
+  min-height: 100vh;
+    /* background-color: blue; */
+    background-image:url('/assets/images/pexels-borja-lopez-1059078.jpg');
+    background-size: cover;
+    overflow: hidden;
+    
+
+}
+
+.heading{
+
+    
+  border: 5px solid rgb(32, 31, 31);
+      padding: 15px;
+      margin-right: 50px;
+      box-shadow:5px 5px 4px #9da9af;
+
+}
+.heading2{
+
+    
+  /* border: 5px solid rgb(32, 31, 31); */
+      padding: 15px;
+      margin-right: 50px;
+      /* box-shadow:5px  4px #e7414f; */
+      font-family: cursive;
+      /* background-color: blue; */
+      color: rgb(210, 42, 30);
+
+}

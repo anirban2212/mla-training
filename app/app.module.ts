@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { CreateEnrollComponent } from './create-enroll/create-enroll.component';
 import { CourseStatusEditComponent } from './course-status-edit/course-status-edit.component';
+import { StudentenrollstatusComponent } from './studentenrollstatus/studentenrollstatus.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CourseStatusEditComponent } from './course-status-edit/course-status-ed
     StudentDetailsComponent,
     CreateEnrollComponent,
     CourseStatusEditComponent,
+    StudentenrollstatusComponent,
    
   ],
   imports: [

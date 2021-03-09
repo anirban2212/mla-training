@@ -1,0 +1,35 @@
+<div class="img">
+<div class="container custom-container">
+    <div class="col-md-12">
+      
+      <h3 class="mb-3 text-center" style="color: rgb(238, 230, 221);"><B>EDIT COURSE DETAILS</B></h3>
+      <div class="form-content">
+      <div class="form-group">
+        <label style="color: blanchedalmond;">COURSE NAME</label>
+        <input type="text" [(ngModel)]="courseData[0].course_name" class="form-control" placeholder="Course Name">
+      </div>
+      <div class="form-group">
+        <label style="color: blanchedalmond;">COURSE FEES</label>
+        <input type="text" [(ngModel)]="courseData[0].course_fees" class="form-control" placeholder="course fees">
+      </div><div class="form-group">
+        <label style="color: blanchedalmond;">COURSE LEVEL</label>
+        <input type="text" [(ngModel)]="courseData[0].course_level" class="form-control" placeholder="course level">
+      </div><div class="form-group">
+        <label style="color: blanchedalmond;">COURSE DURATION</label>
+        <input type="text" [(ngModel)]="courseData[0].course_duration" class="form-control" placeholder="course duration">
+      </div>
+    
+      
+
+      
+      
+    <!-- </div> -->
+      <div class="button">
+        <button class="btn btn-dark" (click)="updateCourse()">UPDATE COURSE</button>
+      </div>
+    </div>
+      
+    </div>
+  </div>
+  </div>
+  

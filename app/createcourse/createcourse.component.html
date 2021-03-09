@@ -2,8 +2,8 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
-<div class="container register-form">
+<div class="img">
+<div class="container register-form" >
             <div class="form">
                 <div class="note">
                     <p>Enter Course Details</p>
@@ -13,28 +13,33 @@
                     <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
+                            <LABEL for="name">COURSE NAME</LABEL>
                             <input type="text" ng-required="true" ng-minlength=5 
                               class="form-control" placeholder="course name" [(ngModel)]="courseDetails.course_name">
                           </div>
                           <div class="form-group">
+                            <LABEL for="name">COURSE FEES</LABEL>
                             <input type="text"
                               class="form-control" placeholder="course fees" [(ngModel)]="courseDetails.course_fees">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
+                            <LABEL for="name">COURSE LEVEL</LABEL>
                             <input type="text" 
                               class="form-control" placeholder="course level" [(ngModel)]="courseDetails.course_level">
                           </div>
                           <div class="form-group">
+                            <LABEL for="name">COURSE DURATION</LABEL>
                             <input type="text" 
                               class="form-control" placeholder="course duration" [(ngModel)]="courseDetails.course_duration">
                           </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                      <button class="btn btn-success btn-lg btn-block" (click)="addCourse()">ADD Course</button>
+                    <div class="button">
+                      <button class="btn btn-dark" (click)="addCourse()">ADD Course</button>
                     </div>
                 </div>
             </div>
         </div>
+      

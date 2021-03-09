@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
+import { StudentenrollstatusComponent } from './studentenrollstatus/studentenrollstatus.component';
 
 import { StudentlistComponent } from './studentlist/studentlist.component';
 import { StudentloginComponent } from './studentlogin/studentlogin.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'create-enroll', component:CreateEnrollComponent},
   { path: 'contactus', component:ContactUsComponent},
   { path: 'home', component:HomeComponent},
+  { path: 'studentenrollstatus', component:StudentenrollstatusComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

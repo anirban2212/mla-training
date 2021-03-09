@@ -3,20 +3,19 @@
     <div class="container custom-container-2">
     
       <!-- Show it when there is no employee -->
-      <div class="no-data text-center" *ngIf="CourselistService .length == 0">
+      <div class="no-data text-center" *ngIf="CourselistService.length == 0">
         <p>There is no course added yet!</p>
         <p>There is no course added yet!</p>
-        <button class="btn btn-outline-primary" routerLink="/courseregistration">Add
-          Student</button>
+        <button class="btn btn-outline-primary" routerLink="/createcourse">create course</button>
       </div>
-      <div>
+      <!-- <div>
         <div style="color: blanchedalmond;"><b>Want to add Course?</b></div>
           <a class="btn btn-secondary" routerLinkActive="active"
-        routerLink="/createcourse">Create Course</a>
-      </div>
+        routerLink="/create-enroll">enroll for a course</a>
+      </div> -->
       <!-- Employees list table, it hides when there is no employee -->
       <div *ngIf="CourselistService .length !== 0">
-        <h3 class="mb-3 text-center" style="color: blanchedalmond;">course List</h3>
+        <h3 class="mb-3 text-center" style="color: blanchedalmond;">COURSE LIST</h3>
     
        
         <!-- <nav class="navbar navbar-light bg-light">
@@ -57,7 +56,8 @@
                   -->
                 <td>
                   <!-- <button class="edit" routerLink="/employee-edit/{{employee.eid}}"> Edit </button> -->
-                  <button class="btn btn-primary">
+                  <button class="btn btn-primary" routerLinkActive="active"
+                  routerLink="/create-enroll">
                     Enroll</button>
                 </td>
               </tr>

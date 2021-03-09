@@ -1,6 +1,10 @@
 <div class="img">
 
   <div class="container custom-container-2">
+    <div style="margin-left: 80%;">
+      <button type="button" class="btn btn-info"
+      routerLink="/home" routerLinkActive="active">LOG OUT</button>
+      </div>  
   
     <!-- Show it when there is no employee -->
     <div class="no-data text-center" *ngIf="CourselistService .length == 0">
@@ -56,7 +60,7 @@
                           <button class="edit" routerLink="/employee-edit/{{employee.id}}"> Edit </button>
                 -->
               <td>
-                <!-- <button class="edit" routerLink="/employee-edit/{{employee.eid}}"> Edit </button> -->
+                <button class="btn btn-primary" routerLink="/course-edit/{{course.course_id}}"> Edit </button>
                 <button class="btn btn-primary" (click)="deleteCourse(course.course_id)">
                   Delete</button>
               </td>
