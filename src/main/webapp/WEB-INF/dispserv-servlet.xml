@@ -42,6 +42,7 @@
 				<value>com.mphasis.entity.Student</value>
 				<value>com.mphasis.entity.Course</value>
 				<value>com.mphasis.entity.Enrollment</value>
+				<value>com.mphasis.entity.Admin</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

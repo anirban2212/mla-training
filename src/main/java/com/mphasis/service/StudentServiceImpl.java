@@ -47,6 +47,10 @@ public class StudentServiceImpl implements StudentService {
 		 studentdao.getStudent(student);
 		
 	}
+	@Override
+    public Student studentLogin(String student_email,String student_password) {
+        return studentdao.studentLogin(student_email,student_password);
+    }
 	
 
 	

@@ -53,5 +53,15 @@ public class EnrollmentDaoImpl implements EnrollmentDao {
 		List<Enrollment> enrollList = query.list();
 		return enrollList;
 	}
+	@Override
+    public List<Enrollment> studentstatus() {
+        Query query = getSession().createQuery(
+                "from Enrollment order by id DESC");
+        query.setMaxResults(1);
+        List<Enrollment> enrollList = query.list();
+        return enrollList;
+        
+    }
+	
 
 }

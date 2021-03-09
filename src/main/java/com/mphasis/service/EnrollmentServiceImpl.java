@@ -41,6 +41,10 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 		
 		return enrollmentdao.getAEnrollment(id);
 	}
+	@Override
+    public List<Enrollment> studentstatus() {
+        return enrollmentdao.studentstatus();
+    }
 
 }
 

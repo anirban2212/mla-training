@@ -57,5 +57,11 @@ public class EnrollmentRestController {
 
 		return enrollmentService.getAEnrollment(id);
 	}
+	@GetMapping("/studentenrollstatus")
+    public List<Enrollment> studentstatus() {
+        return enrollmentService.studentstatus();
+    }
+	
+	
 
 }

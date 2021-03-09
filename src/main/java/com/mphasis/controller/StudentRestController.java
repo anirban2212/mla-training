@@ -78,6 +78,21 @@ public class StudentRestController {
 
 		return new ResponseEntity<List<Student>>(li, HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/studentLogin/{student_email}/{student_password}")
+	        private ResponseEntity<Student> studentLogin(@PathVariable("student_email") String student_email,
+	                @PathVariable("student_password") String student_password)
+	        {
+	            Student student=studentService.studentLogin(student_email,student_password);
+	            //System.out.println(Student.getStudentId()+" "+Student.getEmailId());
+	            if(student==null) 
+	            {
+	                return new ResponseEntity<Student>(HttpStatus.NO_CONTENT);
+	            }
+	            return new ResponseEntity<Student>(student,HttpStatus.OK);
+	        }
+	        
 
 	
 }

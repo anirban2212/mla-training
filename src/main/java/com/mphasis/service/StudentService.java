@@ -13,5 +13,6 @@ public interface StudentService {
 	public List<Student> getAStudent(int student_id);
 	public List<Student> deleteStudent(int student_id);
 	public void studentLogin(Student student);
+	public Student studentLogin(String student_email,String student_password);
 	
 }

@@ -13,4 +13,6 @@ public interface StudentDao {
 	public List<Student> getAStudent(int student_id);
 	//public List<Enrollment> getEnrollList();
 	
+	public Student studentLogin(String student_email,String student_password);
+	
 }

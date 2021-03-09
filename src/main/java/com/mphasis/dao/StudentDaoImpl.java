@@ -92,6 +92,16 @@ public class StudentDaoImpl implements StudentDao {
 		List<Student> stuList=query.list();
 		return stuList;
 	}
+	
+	
+	public Student studentLogin(String student_email,String student_password) {
+	    
+	    Criteria cr = getSession().createCriteria(Student.class);
+	    cr.add(Restrictions.eq("student_email", student_email));
+	    cr.add(Restrictions.eq("student_password", student_password));
+	    Student student=(Student) cr.uniqueResult();
+	    return student;
+	}
 
 	
 	

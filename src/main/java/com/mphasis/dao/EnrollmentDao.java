@@ -10,5 +10,5 @@ public interface EnrollmentDao {
 	public List<Enrollment> updateEnroll(Enrollment enrollment) ;
 	
 	public List<Enrollment> getAEnrollment(int id);
-	
+	 public List<Enrollment> studentstatus();
 }
